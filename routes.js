@@ -19,15 +19,16 @@ const requestHandler=(req,res)=>{
         return req.on('end',()=>{
             const parsedBody=Buffer.concat(body).toString();
             const message=parsedBody.split('=')[1]
+            //console.log(message)
             fs.writeFile('message.txt',message,err =>{
                 res.statusCode=302;
                 res.setHeader('Location','/')
-                return res.end();
+                 return res.end();
             })
         })
     }
     res.setHeader('Content-type','text/html')
-    res.write('<html>')
+    res.write('<html>') 
     res.write('<head><title>My First Page</title></head>')
     res.write('<body><h1>Welcome to Nodejs</h1></body>')
     res.write('</html>')
@@ -40,6 +41,7 @@ const requestHandler=(req,res)=>{
 //     handler:requestHandler,
 //     sometext:"some hard code txt"
 // }
+ 
 
-module.exports.handler=requestHandler
-module.exports.sometext='some harddd text'
+module.exports.handler=requestHandler;
+module.exports.sometext='some harddd text';
