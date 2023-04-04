@@ -4,11 +4,7 @@ const fs=require('fs')
 
 
 const app= express();
-// app.use(bodyParser.urlencoded())
   app.use(bodyParser.urlencoded({ extended: false }))
-//   app.use(express.json())
-// app.use(express.urlencoded({ extended: true }))
-
 
  app.get("/",(req,res,next)=>{
     fs.readFile('username.txt',(err,data)=>{
